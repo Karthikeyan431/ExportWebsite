@@ -12,21 +12,60 @@
     <header class="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-text" id="company-logo-text">TURMEX</span>
+                <span class="logo-text" id="company-logo-text">🌿 TURMEX</span>
+                <span class="tagline" id="company-tagline">Farm-to-Export Traceable Turmeric</span>
             </a>
+            
+            <!-- Desktop Navigation -->
             <nav>
-                <ul class="nav">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
-                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link">Batch Traceability</a></li>
-                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">Quality</a></li>
-                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">Knowledge Hub</a></li>
-                    <li class="nav-item"><a href="request-quote.html" class="btn btn-primary btn-small">Request Quote</a></li>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">ℹ️ About</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">🌿 Products</a></li>
+                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link">🔍 Traceability</a></li>
+                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">🧪 Quality</a></li>
+                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">📚 Knowledge</a></li>
+                    <li class="nav-item nav-cta">
+                        <a href="request-quote.html" class="btn btn-primary">📋 Get Quote</a>
+                    </li>
                 </ul>
             </nav>
+            
+            <!-- Hamburger Menu -->
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="about.html" class="mobile-nav-link">ℹ️ About Us</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="products.html" class="mobile-nav-link">🌿 Products</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="batch-traceability.html" class="mobile-nav-link">🔍 Batch Traceability</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="quality-reports.html" class="mobile-nav-link">🧪 Quality & Lab Reports</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="knowledge-hub.html" class="mobile-nav-link">📚 Knowledge Hub</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="request-quote.html" class="btn btn-primary mobile-nav-cta" style="width: 100%; justify-content: center;">📋 Request Quote</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Page Header -->
     <section class="hero" style="padding: 60px 0;">
@@ -41,7 +80,7 @@
     <!-- Main Content -->
     <section class="section">
         <div class="container">
-            <div class="grid-2">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px;">
                 <div>
                     <h2 style="margin-bottom: 24px;">Get In Touch</h2>
                     <p style="margin-bottom: 24px;">Have questions about our turmeric products or export process? We're here to help.</p>
@@ -58,7 +97,7 @@
                         <h3 style="margin-bottom: 16px;">Business Hours</h3>
                         <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM (IST)</p>
                         <p><strong>Sunday:</strong> Closed</p>
-                        <p style="margin-top: 8px; font-size: 14px; color: var(--medium-gray);">We respond to inquiries within 24-48 hours.</p>
+                        <p style="margin-top: 8px; font-size: 14px; color: #888;">We respond to inquiries within 24-48 hours.</p>
                     </div>
                 </div>
                 
@@ -66,7 +105,7 @@
                     <div class="quote-form">
                         <h2>Send a Message</h2>
                         <form id="contact-form" onsubmit="submitContactForm(event)">
-                            <div class="form-row">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
                                 <div class="form-group">
                                     <label for="contact-name">Your Name *</label>
                                     <input type="text" id="contact-name" name="name" required>
@@ -77,7 +116,7 @@
                                 </div>
                             </div>
                             
-                            <div class="form-row">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
                                 <div class="form-group">
                                     <label for="contact-company">Company</label>
                                     <input type="text" id="contact-company" name="company">
@@ -86,18 +125,6 @@
                                     <label for="contact-country">Country</label>
                                     <input type="text" id="contact-country" name="country">
                                 </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact-subject">Subject</label>
-                                <select id="contact-subject" name="subject">
-                                    <option value="general">General Inquiry</option>
-                                    <option value="quote">Request Quote</option>
-                                    <option value="product">Product Question</option>
-                                    <option value="quality">Quality Question</option>
-                                    <option value="shipping">Shipping Question</option>
-                                    <option value="partnership">Partnership Opportunity</option>
-                                </select>
                             </div>
                             
                             <div class="form-group">
@@ -115,65 +142,20 @@
         </div>
     </section>
 
-    <!-- Map Section (Placeholder) -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Location</h2>
-                <p>Based in India - serving global markets</p>
-            </div>
-            <div class="card">
-                <div style="background: var(--off-white); padding: 60px; text-align: center; border-radius: var(--radius-md);">
-                    <div style="font-size: 64px; margin-bottom: 16px;">📍</div>
-                    <h3>Demo Location</h3>
-                    <p>India</p>
-                    <p style="color: var(--medium-gray); margin-top: 8px;">Map placeholder - Add your actual location via Admin Panel</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>What is your minimum order quantity?</h3>
-                    <p>MOQ varies by product: Raw Turmeric Fingers (500 kg), Polished Turmeric (1000 kg), Turmeric Powder (500 kg). Contact us for LCL options.</p>
-                </div>
-                <div class="card">
-                    <h3>What countries do you export to?</h3>
-                    <p>We export to USA, UAE, UK, Germany, Japan, Australia, Canada, Saudi Arabia, and many other countries worldwide.</p>
-                </div>
-                <div class="card">
-                    <h3>How long does shipping take?</h3>
-                    <p>Shipping time varies by destination: Middle East (7-10 days), Europe (25-35 days), Americas (30-45 days), Asia (5-10 days).</p>
-                </div>
-                <div class="card">
-                    <h3>Can I get samples before ordering?</h3>
-                    <p>Yes, we can provide samples for quality evaluation. Contact us to request samples with shipping cost details.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4 id="footer-company">Premium Turmeric Exporter</h4>
-                    <p>Farm-to-Export Traceable Turmeric for global markets. Premium quality, transparent sourcing.</p>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #F4C430; margin-bottom: 16px;">🌿 TURMEX</div>
+                    <p style="color: rgba(255,255,255,0.7);">Farm-to-Export Traceable Turmeric for global markets.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="products.html">Products</a>
                     <a href="batch-traceability.html">Traceability</a>
-                    <a href="request-quote.html">Request Quote</a>
                 </div>
                 <div class="footer-col">
                     <h4>Quality</h4>
@@ -183,13 +165,13 @@
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <p id="footer-email">export@example.com</p>
-                    <p id="footer-phone">+91-XXXX XXXXX</p>
+                    <p style="color: rgba(255,255,255,0.7);" id="footer-email">export@example.com</p>
+                    <p style="color: rgba(255,255,255,0.7);" id="footer-phone">+91-XXXX XXXXX</p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
                 <p>&copy; 2024 <span id="footer-copyright-name">Premium Turmeric Exporter</span>. All rights reserved.</p>
-                <p style="margin-top: 8px; font-size: 12px;">📋 Demo Website - All data is demonstration only</p>
+                <p style="margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">📋 Demo Website - All data is demonstration only</p>
             </div>
         </div>
     </footer>
@@ -197,9 +179,48 @@
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
     <script>
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const body = document.body;
+            
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            if (mobileNav.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.getElementById('mobileNav');
+                const body = document.body;
+                
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.getElementById('mobileNav');
+                const body = document.body;
+                
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
         function submitContactForm(event) {
             event.preventDefault();
-            alert('Thank you for your message! We will respond within 24-48 business hours.\n\nThis is a demo - in production, this would be sent to your email and stored in the admin panel.');
+            alert('Thank you for your message! We will respond within 24-48 business hours.\n\nThis is a demo.');
             event.target.reset();
         }
     </script>

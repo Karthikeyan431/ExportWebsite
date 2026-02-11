@@ -15,19 +15,64 @@
                 <span class="logo-text" id="company-logo-text">🌿 TURMEX</span>
                 <span class="tagline" id="company-tagline">Farm-to-Export Traceable Turmeric</span>
             </a>
+            
+            <!-- Desktop Navigation -->
             <nav>
-                <ul class="nav">
-                    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
-                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link">Traceability</a></li>
-                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">Quality</a></li>
-                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">Knowledge</a></li>
-                    <li class="nav-item"><a href="request-quote.html" class="btn btn-primary btn-small">Get Quote</a></li>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">ℹ️ About</a></li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">🌿 Products ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products.html" class="dropdown-link">Raw Turmeric Fingers</a></li>
+                            <li><a href="products.html" class="dropdown-link">Polished Turmeric</a></li>
+                            <li><a href="products.html" class="dropdown-link">Turmeric Powder</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link">🔍 Traceability</a></li>
+                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">🧪 Quality</a></li>
+                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">📚 Knowledge</a></li>
+                    <li class="nav-item nav-cta">
+                        <a href="request-quote.html" class="btn btn-primary">📋 Get Quote</a>
+                    </li>
                 </ul>
             </nav>
+            
+            <!-- Hamburger Menu -->
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link active">🏠 Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="about.html" class="mobile-nav-link">ℹ️ About Us</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="products.html" class="mobile-nav-link">🌿 Products</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="batch-traceability.html" class="mobile-nav-link">🔍 Batch Traceability</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="quality-reports.html" class="mobile-nav-link">🧪 Quality & Lab Reports</a>
+            </li>
+            <li class="mobile-nav-item">
+                -hub.html"<a href="knowledge class="mobile-nav-link">📚 Knowledge Hub</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="request-quote.html" class="btn btn-primary mobile-nav-cta" style="width: 100%; justify-content: center;">📋 Request Quote</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -244,5 +289,65 @@
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const body = document.body;
+            
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            // Prevent body scroll when mobile nav is open
+            if (mobileNav.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+
+        // Close mobile nav when clicking on a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.getElementById('mobileNav');
+                const body = document.body;
+                
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const hamburger = document.querySelector('.hamburger');
+            const header = document.querySelector('.header');
+            
+            if (mobileNav.classList.contains('active') && 
+                !mobileNav.contains(event.target) && 
+                !hamburger.contains(event.target)) {
+                const body = document.body;
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
+        // Close mobile nav on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.getElementById('mobileNav');
+                const body = document.body;
+                
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -12,21 +12,65 @@
     <header class="header">
         <div class="header-inner">
             <a href="index.html" class="logo">
-                <span class="logo-text" id="company-logo-text">TURMEX</span>
+                <span class="logo-text" id="company-logo-text">🌿 TURMEX</span>
+                <span class="tagline" id="company-tagline">Farm-to-Export Traceable Turmeric</span>
             </a>
+            
+            <!-- Desktop Navigation -->
             <nav>
-                <ul class="nav">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
-                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link active">Batch Traceability</a></li>
-                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">Quality</a></li>
-                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">Knowledge Hub</a></li>
-                    <li class="nav-item"><a href="request-quote.html" class="btn btn-primary btn-small">Request Quote</a></li>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">ℹ️ About</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">🌿 Products</a></li>
+                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link active">🔍 Traceability ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="batch-traceability.html" class="dropdown-link">View All Batches</a></li>
+                            <li><a href="quality-reports.html" class="dropdown-link">Lab Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">🧪 Quality</a></li>
+                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">📚 Knowledge</a></li>
+                    <li class="nav-item nav-cta">
+                        <a href="request-quote.html" class="btn btn-primary">📋 Get Quote</a>
+                    </li>
                 </ul>
             </nav>
+            
+            <!-- Hamburger Menu -->
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="about.html" class="mobile-nav-link">ℹ️ About Us</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="products.html" class="mobile-nav-link">🌿 Products</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="batch-traceability.html" class="mobile-nav-link active">🔍 Batch Traceability</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="quality-reports.html" class="mobile-nav-link">🧪 Quality & Lab Reports</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="knowledge-hub.html" class="mobile-nav-link">📚 Knowledge Hub</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="request-quote.html" class="btn btn-primary mobile-nav-cta" style="width: 100%; justify-content: center;">📋 Request Quote</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Page Header -->
     <section class="hero" style="padding: 60px 0;">
@@ -49,7 +93,7 @@
                 <!-- Batches List Sidebar -->
                 <div class="batch-list-sidebar">
                     <h3 style="margin-bottom: 16px;">Demo Batches</h3>
-                    <p style="font-size: 14px; color: var(--medium-gray); margin-bottom: 16px;">Click a batch to view details</p>
+                    <p style="font-size: 14px; color: #888; margin-bottom: 16px;">Click a batch to view details</p>
                     <div id="batches-list">
                         <!-- Batches rendered by JavaScript -->
                     </div>
@@ -58,6 +102,7 @@
                 <!-- Batch Detail View -->
                 <div id="batch-detail">
                     <div class="empty-state">
+                        <div style="font-size: 4rem; margin-bottom: 16px;">🔍</div>
                         <h3>Select a Batch</h3>
                         <p>Click on a batch from the list to view its complete traceability information.</p>
                     </div>
@@ -75,24 +120,24 @@
             </div>
             <div class="grid-4">
                 <div class="card text-center">
-                    <div style="font-size: 48px; margin-bottom: 16px;">🌱</div>
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🌱</div>
                     <h4>Farm Registration</h4>
-                    <p>All partner farms are registered and verified with GPS coordinates</p>
+                    <p style="color: #888; font-size: 0.9rem;">All partner farms are registered and verified with GPS coordinates</p>
                 </div>
                 <div class="card text-center">
-                    <div style="font-size: 48px; margin-bottom: 16px;">📝</div>
+                    <div style="font-size: 3rem; margin-bottom: 16px;">📝</div>
                     <h4>Batch Tracking</h4>
-                    <p>Each harvest batch gets a unique ID linked to farm and harvest data</p>
+                    <p style="color: #888; font-size: 0.9rem;">Each harvest batch gets a unique ID linked to farm and harvest data</p>
                 </div>
                 <div class="card text-center">
-                    <div style="font-size: 48px; margin-bottom: 16px;">🧪</div>
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🧪</div>
                     <h4>Lab Verification</h4>
-                    <p>Quality parameters tested and documented for each batch</p>
+                    <p style="color: #888; font-size: 0.9rem;">Quality parameters tested and documented for each batch</p>
                 </div>
                 <div class="card text-center">
-                    <div style="font-size: 48px; margin-bottom: 16px;">📱</div>
+                    <div style="font-size: 3rem; margin-bottom: 16px;">📱</div>
                     <h4>QR Verification</h4>
-                    <p>Scan QR codes to verify batch authenticity anytime</p>
+                    <p style="color: #888; font-size: 0.9rem;">Scan QR codes to verify batch authenticity anytime</p>
                 </div>
             </div>
         </div>
@@ -103,15 +148,15 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4 id="footer-company">Premium Turmeric Exporter</h4>
-                    <p>Farm-to-Export Traceable Turmeric for global markets. Premium quality, transparent sourcing.</p>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: #F4C430; margin-bottom: 16px;">🌿 TURMEX</div>
+                    <p style="color: rgba(255,255,255,0.7);">Farm-to-Export Traceable Turmeric for global markets.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="products.html">Products</a>
                     <a href="batch-traceability.html">Traceability</a>
-                    <a href="request-quote.html">Request Quote</a>
                 </div>
                 <div class="footer-col">
                     <h4>Quality</h4>
@@ -121,18 +166,59 @@
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <p id="footer-email">export@example.com</p>
-                    <p id="footer-phone">+91-XXXX XXXXX</p>
+                    <p style="color: rgba(255,255,255,0.7);" id="footer-email">export@example.com</p>
+                    <p style="color: rgba(255,255,255,0.7);" id="footer-phone">+91-XXXX XXXXX</p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
                 <p>&copy; 2024 <span id="footer-copyright-name">Premium Turmeric Exporter</span>. All rights reserved.</p>
-                <p style="margin-top: 8px; font-size: 12px;">📋 Demo Website - All data is demonstration only</p>
+                <p style="margin-top: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">📋 Demo Website - All data is demonstration only</p>
             </div>
         </div>
     </footer>
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            const body = document.body;
+            
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            if (mobileNav.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.getElementById('mobileNav');
+                const body = document.body;
+                
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.getElementById('mobileNav');
+                const body = document.body;
+                
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
