@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Traceability | Premium Turmeric Export Platform</title>
+    <meta name="description" content="Track turmeric batches from farm to export with complete transparency and traceability.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-text" id="company-logo-text">TURMEX</span>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link active">Batch Traceability</a></li>
+                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">Quality</a></li>
+                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">Knowledge Hub</a></li>
+                    <li class="nav-item"><a href="request-quote.html" class="btn btn-primary btn-small">Request Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <div class="text-center">
+                <h1>Batch Traceability</h1>
+                <p>Complete transparency from farm to export</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="demo-badge" style="margin-bottom: 32px;">
+                📋 Demo Data - All batch information shown is demonstration only
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 300px 1fr; gap: 32px;">
+                <!-- Batches List Sidebar -->
+                <div class="batch-list-sidebar">
+                    <h3 style="margin-bottom: 16px;">Demo Batches</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); margin-bottom: 16px;">Click a batch to view details</p>
+                    <div id="batches-list">
+                        <!-- Batches rendered by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Batch Detail View -->
+                <div id="batch-detail">
+                    <div class="empty-state">
+                        <h3>Select a Batch</h3>
+                        <p>Click on a batch from the list to view its complete traceability information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traceability Info -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Traceability Works</h2>
+                <p>Our complete farm-to-export transparency system</p>
+            </div>
+            <div class="grid-4">
+                <div class="card text-center">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🌱</div>
+                    <h4>Farm Registration</h4>
+                    <p>All partner farms are registered and verified with GPS coordinates</p>
+                </div>
+                <div class="card text-center">
+                    <div style="font-size: 48px; margin-bottom: 16px;">📝</div>
+                    <h4>Batch Tracking</h4>
+                    <p>Each harvest batch gets a unique ID linked to farm and harvest data</p>
+                </div>
+                <div class="card text-center">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🧪</div>
+                    <h4>Lab Verification</h4>
+                    <p>Quality parameters tested and documented for each batch</p>
+                </div>
+                <div class="card text-center">
+                    <div style="font-size: 48px; margin-bottom: 16px;">📱</div>
+                    <h4>QR Verification</h4>
+                    <p>Scan QR codes to verify batch authenticity anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 id="footer-company">Premium Turmeric Exporter</h4>
+                    <p>Farm-to-Export Traceable Turmeric for global markets. Premium quality, transparent sourcing.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="products.html">Products</a>
+                    <a href="batch-traceability.html">Traceability</a>
+                    <a href="request-quote.html">Request Quote</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Quality</h4>
+                    <a href="quality-reports.html">Lab Reports</a>
+                    <a href="documents.html">Certifications</a>
+                    <a href="knowledge-hub.html">Knowledge Hub</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p id="footer-email">export@example.com</p>
+                    <p id="footer-phone">+91-XXXX XXXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 <span id="footer-copyright-name">Premium Turmeric Exporter</span>. All rights reserved.</p>
+                <p style="margin-top: 8px; font-size: 12px;">📋 Demo Website - All data is demonstration only</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

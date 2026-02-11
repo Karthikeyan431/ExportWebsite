@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Quote | Premium Turmeric Export Platform</title>
+    <meta name="description" content="Request a competitive quote for your turmeric export requirements. Bulk orders, custom packaging, worldwide shipping.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-text" id="company-logo-text">TURMEX</span>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+                    <li class="nav-item"><a href="batch-traceability.html" class="nav-link">Batch Traceability</a></li>
+                    <li class="nav-item"><a href="quality-reports.html" class="nav-link">Quality</a></li>
+                    <li class="nav-item"><a href="knowledge-hub.html" class="nav-link">Knowledge Hub</a></li>
+                    <li class="nav-item"><a href="request-quote.html" class="btn btn-primary btn-small active">Request Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <div class="text-center">
+                <h1>Request a Quote</h1>
+                <p>Get competitive pricing for your turmeric export requirements</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="demo-badge" style="margin-bottom: 24px;">
+                📋 Demo Mode - Form submissions are saved to admin panel for demonstration
+            </div>
+            
+            <div class="grid-2">
+                <div>
+                    <div class="quote-form">
+                        <h2>Export Inquiry Form</h2>
+                        <form id="quote-form" onsubmit="submitQuoteForm(event)">
+                            <h4 style="margin-bottom: 16px; margin-top: 24px;">Product Requirements</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quote-product">Product *</label>
+                                    <select id="quote-product" name="product" required>
+                                        <option value="">Select Product</option>
+                                        <option value="raw-fingers">Raw Turmeric Fingers</option>
+                                        <option value="polished-turmeric">Polished Turmeric</option>
+                                        <option value="turmeric-powder">Turmeric Powder (Coming Soon)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote-batch">Specific Batch (Optional)</label>
+                                    <select id="quote-batch" name="batch">
+                                        <option value="">Any Batch (Optional)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quote-quantity">Quantity (kg) *</label>
+                                    <input type="text" id="quote-quantity" name="quantity" placeholder="e.g., 5000 kg" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote-destination">Destination Country *</label>
+                                    <input type="text" id="quote-destination" name="destination" placeholder="e.g., USA, UAE, Germany" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quote-packaging">Packaging Preference</label>
+                                <select id="quote-packaging" name="packaging">
+                                    <option value="">Select Packaging</option>
+                                    <option value="25kg-bags">25kg PP Bags</option>
+                                    <option value="50kg-jute">50kg Jute Bags</option>
+                                    <option value="retail">Retail Packs</option>
+                                    <option value="custom">Custom Packaging</option>
+                                </select>
+                            </div>
+                            
+                            <h4 style="margin-bottom: 16px; margin-top: 24px;">Buyer Information</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quote-buyer-name">Contact Name *</label>
+                                    <input type="text" id="quote-buyer-name" name="buyer_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote-buyer-email">Email Address *</label>
+                                    <input type="email" id="quote-buyer-email" name="buyer_email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quote-buyer-company">Company Name</label>
+                                    <input type="text" id="quote-buyer-company" name="buyer_company">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote-buyer-phone">Phone Number</label>
+                                    <input type="text" id="quote-buyer-phone" name="buyer_phone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="quote-message">Additional Requirements</label>
+                                <textarea id="quote-message" name="message" placeholder="Any specific quality parameters, certifications, or shipping requirements..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-large">Submit Inquiry</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3>Why Request a Quote?</h3>
+                        <ul style="margin-left: 20px;">
+                            <li style="margin-bottom: 12px;">Competitive pricing for bulk orders</li>
+                            <li style="margin-bottom: 12px;">Customized quality specifications</li>
+                            <li style="margin-bottom: 12px;">Flexible packaging options</li>
+                            <li style="margin-bottom: 12px;">Worldwide shipping arrangements</li>
+                            <li>Response within 24-48 hours</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card" style="margin-bottom: 24px;">
+                        <h3>Minimum Order Quantities</h3>
+                        <table class="admin-table">
+                            <tbody>
+                                <tr>
+                                    <td>Raw Turmeric Fingers</td>
+                                    <td><strong>500 kg</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Polished Turmeric</td>
+                                    <td><strong>1000 kg</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Turmeric Powder</td>
+                                    <td><strong>500 kg</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Export Destinations</h3>
+                        <p style="margin-bottom: 12px;">We export to:</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span class="grade-badge">USA</span>
+                            <span class="grade-badge">UAE</span>
+                            <span class="grade-badge">UK</span>
+                            <span class="grade-badge">Germany</span>
+                            <span class="grade-badge">Japan</span>
+                            <span class="grade-badge">Australia</span>
+                            <span class="grade-badge">Canada</span>
+                            <span class="grade-badge">Saudi Arabia</span>
+                            <span class="grade-badge">+ More</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 id="footer-company">Premium Turmeric Exporter</h4>
+                    <p>Farm-to-Export Traceable Turmeric for global markets. Premium quality, transparent sourcing.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="products.html">Products</a>
+                    <a href="batch-traceability.html">Traceability</a>
+                    <a href="request-quote.html">Request Quote</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Quality</h4>
+                    <a href="quality-reports.html">Lab Reports</a>
+                    <a href="documents.html">Certifications</a>
+                    <a href="knowledge-hub.html">Knowledge Hub</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p id="footer-email">export@example.com</p>
+                    <p id="footer-phone">+91-XXXX XXXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 <span id="footer-copyright-name">Premium Turmeric Exporter</span>. All rights reserved.</p>
+                <p style="margin-top: 8px; font-size: 12px;">📋 Demo Website - All data is demonstration only</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

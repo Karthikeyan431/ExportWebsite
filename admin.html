@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Turmeric Export Platform</title>
+    <meta name="description" content="Admin panel for managing turmeric export platform content, batches, products, and quotes.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Admin-specific styles */
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .admin-header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .batch-manage-item,
+        .product-manage-item,
+        .document-manage-item,
+        .quote-manage-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid var(--light-beige);
+            border-radius: var(--radius-lg);
+            margin-bottom: 12px;
+            background: var(--white);
+            box-shadow: var(--shadow-soft);
+            transition: all var(--transition-fast);
+        }
+        
+        .batch-manage-item:hover,
+        .product-manage-item:hover,
+        .document-manage-item:hover,
+        .quote-manage-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+        
+        .batch-manage-info h4,
+        .product-manage-info h4,
+        .document-manage-info h4,
+        .quote-manage-info h4 {
+            margin-bottom: 4px;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .batch-manage-info p,
+        .product-manage-info p,
+        .document-manage-info p,
+        .quote-manage-info p {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            margin-bottom: 4px;
+        }
+        
+        .batch-manage-actions,
+        .product-manage-actions,
+        .document-manage-actions,
+        .quote-manage-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .quote-manage-item {
+            flex-wrap: wrap;
+        }
+        
+        .quote-manage-status {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .valid-until {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+        }
+        
+        .quote-date {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 32px;
+            color: var(--medium-gray);
+        }
+        
+        .form-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+        }
+        
+        .form-modal.active {
+            display: flex;
+        }
+        
+        .form-modal-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xxl);
+            max-width: 650px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .form-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .form-modal-close {
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--medium-gray);
+            transition: color var(--transition-fast);
+        }
+        
+        .form-modal-close:hover {
+            color: var(--charcoal);
+        }
+        
+        .dashboard-section {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-xl);
+            border: 1px solid var(--light-beige);
+        }
+        
+        .dashboard-section h3 {
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+        
+        .recent-activity {
+            max-height: 350px;
+            overflow-y: auto;
+        }
+        
+        .quick-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--white);
+            border: 2px solid var(--light-beige);
+            border-radius: var(--radius-lg);
+            color: var(--charcoal);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .quick-action-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--cream) 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Admin Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">🧡 Admin Panel</div>
+            <nav>
+                <ul class="admin-nav">
+                    <li class="admin-nav-item">
+                        <a href="#" class="admin-nav-link active" data-section="dashboard">
+                            📊 Dashboard
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="#" class="admin-nav-link" data-section="company">
+                            🏢 Company Settings
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="#" class="admin-nav-link" data-section="batches">
+                            📦 Batch Management
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="#" class="admin-nav-link" data-section="products">
+                            🏷️ Product Management
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="#" class="admin-nav-link" data-section="documents">
+                            📄 Document Management
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="#" class="admin-nav-link" data-section="quotes">
+                            📬 Quote Requests
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <a href="index.html" class="admin-nav-link" style="margin-bottom: 8px;">
+                    🌐 View Website
+                </a>
+                <button class="admin-nav-link" style="width: 100%; cursor: pointer; background: none; border: none;" onclick="resetDemoData()">
+                    🔄 Reset Demo Data
+                </button>
+            </div>
+        </aside>
+
+        <!-- Admin Content -->
+        <main class="admin-content">
+            <div class="admin-container">
+                <!-- Dashboard Section -->
+                <section id="section-dashboard" class="admin-section active">
+                    <div class="admin-header">
+                        <h1>📊 Dashboard</h1>
+                        <div class="admin-header-actions">
+                            <span class="demo-badge-small">📋 Demo Mode</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="stat-batches">0</div>
+                            <div class="stat-label">📦 Total Batches</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="stat-products">0</div>
+                            <div class="stat-label">🏷️ Active Products</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="stat-quotes">0</div>
+                            <div class="stat-label">📬 Quote Requests</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="stat-documents">0</div>
+                            <div class="stat-label">📄 Documents</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>📬 Recent Quote Requests</h3>
+                        <div id="recent-quotes" class="recent-activity">
+                            <p class="empty-message">
+                                <span style="font-size: 2rem; display: block; margin-bottom: 8px;">📭</span>
+                                No quotes yet.<br>
+                                <small>Demo mode - submit a quote via the Request Quote page.</small>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>⚡ Quick Actions</h3>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button class="quick-action-btn" onclick="showSection('batches')">
+                                ➕ Add New Batch
+                            </button>
+                            <button class="quick-action-btn" onclick="showSection('products')">
+                                ➕ Add New Product
+                            </button>
+                            <button class="quick-action-btn" onclick="showSection('company')">
+                                ✏️ Edit Company Info
+                            </button>
+                            <button class="quick-action-btn" onclick="showSection('quotes')">
+                                📬 View All Quotes
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Company Settings Section -->
+                <section id="section-company" class="admin-section">
+                    <div class="admin-header">
+                        <h1>🏢 Company Settings</h1>
+                        <span class="demo-badge-small">📋 Demo Mode</span>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>🏷️ Brand Information</h3>
+                        <p style="margin-bottom: 24px; color: var(--medium-gray);">Update your company details - these will appear across the website.</p>
+                        <form id="company-settings-form">
+                            <!-- Form rendered by JavaScript -->
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Batch Management Section -->
+                <section id="section-batches" class="admin-section">
+                    <div class="admin-header">
+                        <h1>📦 Batch Management</h1>
+                        <div class="admin-header-actions">
+                            <button class="btn btn-primary" onclick="showAddBatchForm()">➕ Add New Batch</button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>📋 All Batches</h3>
+                        <p style="margin-bottom: 16px; color: var(--medium-gray);">Manage your traceability batches here.</p>
+                        <div id="batches-list-admin">
+                            <!-- Batches list rendered by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Product Management Section -->
+                <section id="section-products" class="admin-section">
+                    <div class="admin-header">
+                        <h1>🏷️ Product Management</h1>
+                        <div class="admin-header-actions">
+                            <button class="btn btn-primary" onclick="showAddProductForm()">➕ Add New Product</button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>📦 All Products</h3>
+                        <p style="margin-bottom: 16px; color: var(--medium-gray);">Manage your product catalog here.</p>
+                        <div id="products-list-admin">
+                            <!-- Products list rendered by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Document Management Section -->
+                <section id="section-documents" class="admin-section">
+                    <div class="admin-header">
+                        <h1>📄 Document Management</h1>
+                        <span class="demo-badge-small">📋 Demo Mode</span>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>🏆 Certificates & Documents</h3>
+                        <p style="margin-bottom: 16px; color: var(--medium-gray);">Upload and manage export certificates and documents.</p>
+                        <div id="documents-list-admin">
+                            <!-- Documents list rendered by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quotes Management Section -->
+                <section id="section-quotes" class="admin-section">
+                    <div class="admin-header">
+                        <h1>📬 Quote Requests</h1>
+                        <span class="demo-badge-small">📋 Demo Mode</span>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <h3>📧 All Quote Inquiries</h3>
+                        <p style="margin-bottom: 16px; color: var(--medium-gray);">View and manage buyer quote requests.</p>
+                        <div id="quotes-list-admin">
+                            <!-- Quotes list rendered by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Batch Form Modal -->
+    <div id="batch-form-modal" class="form-modal">
+        <div class="form-modal-content">
+            <div class="form-modal-header">
+                <h3>📦 Batch Form</h3>
+                <span class="form-modal-close" onclick="closeBatchForm()">&times;</span>
+            </div>
+            <div id="batch-form">
+                <!-- Form rendered by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Form Modal -->
+    <div id="product-form-modal" class="form-modal">
+        <div class="form-modal-content">
+            <div class="form-modal-header">
+                <h3>🏷️ Product Form</h3>
+                <span class="form-modal-close" onclick="closeProductForm()">&times;</span>
+            </div>
+            <div id="product-form">
+                <!-- Form rendered by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Form Modal -->
+    <div id="document-form-modal" class="form-modal">
+        <div class="form-modal-content">
+            <div class="form-modal-header">
+                <h3>📄 Document Form</h3>
+                <span class="form-modal-close" onclick="closeDocumentForm()">&times;</span>
+            </div>
+            <div id="document-form">
+                <!-- Form rendered by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Initialize admin panel on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to nav items
+            document.querySelectorAll('.admin-nav-link[data-section]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    showSection(section);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
